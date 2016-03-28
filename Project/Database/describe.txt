@@ -1,0 +1,233 @@
+mysql> describe aka_name;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| person_id     | int(11)     | NO   | MUL | NULL    |                |
+| name          | text        | NO   |     | NULL    |                |
+| imdb_index    | varchar(12) | YES  |     | NULL    |                |
+| name_pcode_cf | varchar(5)  | YES  | MUL | NULL    |                |
+| name_pcode_nf | varchar(5)  | YES  | MUL | NULL    |                |
+| surname_pcode | varchar(5)  | YES  | MUL | NULL    |                |
+| md5sum        | varchar(32) | YES  | MUL | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+
+mysql> describe aka_title;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| movie_id        | int(11)     | NO   | MUL | NULL    |                |
+| title           | text        | NO   |     | NULL    |                |
+| imdb_index      | varchar(12) | YES  |     | NULL    |                |
+| kind_id         | int(11)     | NO   |     | NULL    |                |
+| production_year | int(11)     | YES  |     | NULL    |                |
+| phonetic_code   | varchar(5)  | YES  | MUL | NULL    |                |
+| episode_of_id   | int(11)     | YES  | MUL | NULL    |                |
+| season_nr       | int(11)     | YES  |     | NULL    |                |
+| episode_nr      | int(11)     | YES  |     | NULL    |                |
+| note            | text        | YES  |     | NULL    |                |
+| md5sum          | varchar(32) | YES  | MUL | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
+
+mysql> describe cast_info;
++----------------+---------+------+-----+---------+----------------+
+| Field          | Type    | Null | Key | Default | Extra          |
++----------------+---------+------+-----+---------+----------------+
+| id             | int(11) | NO   | PRI | NULL    | auto_increment |
+| person_id      | int(11) | NO   | MUL | NULL    |                |
+| movie_id       | int(11) | NO   | MUL | NULL    |                |
+| person_role_id | int(11) | YES  | MUL | NULL    |                |
+| note           | text    | YES  |     | NULL    |                |
+| nr_order       | int(11) | YES  |     | NULL    |                |
+| role_id        | int(11) | NO   |     | NULL    |                |
++----------------+---------+------+-----+---------+----------------+
+
+mysql> describe char_name;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name          | text        | NO   | MUL | NULL    |                |
+| imdb_index    | varchar(12) | YES  |     | NULL    |                |
+| imdb_id       | int(11)     | YES  |     | NULL    |                |
+| name_pcode_nf | varchar(5)  | YES  | MUL | NULL    |                |
+| surname_pcode | varchar(5)  | YES  | MUL | NULL    |                |
+| md5sum        | varchar(32) | YES  | MUL | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+
+mysql> describe comp_cast_type;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| kind  | varchar(32) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+mysql> describe company_name;
++---------------+--------------+------+-----+---------+----------------+
+| Field         | Type         | Null | Key | Default | Extra          |
++---------------+--------------+------+-----+---------+----------------+
+| id            | int(11)      | NO   | PRI | NULL    | auto_increment |
+| name          | text         | NO   | MUL | NULL    |                |
+| country_code  | varchar(255) | YES  |     | NULL    |                |
+| imdb_id       | int(11)      | YES  |     | NULL    |                |
+| name_pcode_nf | varchar(5)   | YES  | MUL | NULL    |                |
+| name_pcode_sf | varchar(5)   | YES  | MUL | NULL    |                |
+| md5sum        | varchar(32)  | YES  | MUL | NULL    |                |
++---------------+--------------+------+-----+---------+----------------+
+
+mysql> describe company_type;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| kind  | varchar(32) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+mysql> describe complete_cast;
++------------+---------+------+-----+---------+----------------+
+| Field      | Type    | Null | Key | Default | Extra          |
++------------+---------+------+-----+---------+----------------+
+| id         | int(11) | NO   | PRI | NULL    | auto_increment |
+| movie_id   | int(11) | YES  | MUL | NULL    |                |
+| subject_id | int(11) | NO   |     | NULL    |                |
+| status_id  | int(11) | NO   |     | NULL    |                |
++------------+---------+------+-----+---------+----------------+
+
+mysql> describe info_type;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| info  | varchar(32) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+mysql> describe keyword;
++---------------+------------+------+-----+---------+----------------+
+| Field         | Type       | Null | Key | Default | Extra          |
++---------------+------------+------+-----+---------+----------------+
+| id            | int(11)    | NO   | PRI | NULL    | auto_increment |
+| keyword       | text       | NO   | MUL | NULL    |                |
+| phonetic_code | varchar(5) | YES  | MUL | NULL    |                |
++---------------+------------+------+-----+---------+----------------+
+
+mysql> describe kind_type;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| kind  | varchar(15) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+mysql> describe link_type;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| link  | varchar(32) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+mysql> describe movie_companies ;
++-----------------+---------+------+-----+---------+----------------+
+| Field           | Type    | Null | Key | Default | Extra          |
++-----------------+---------+------+-----+---------+----------------+
+| id              | int(11) | NO   | PRI | NULL    | auto_increment |
+| movie_id        | int(11) | NO   | MUL | NULL    |                |
+| company_id      | int(11) | NO   | MUL | NULL    |                |
+| company_type_id | int(11) | NO   |     | NULL    |                |
+| note            | text    | YES  |     | NULL    |                |
++-----------------+---------+------+-----+---------+----------------+
+
+mysql> describe movie_info;
++--------------+---------+------+-----+---------+----------------+
+| Field        | Type    | Null | Key | Default | Extra          |
++--------------+---------+------+-----+---------+----------------+
+| id           | int(11) | NO   | PRI | NULL    | auto_increment |
+| movie_id     | int(11) | NO   | MUL | NULL    |                |
+| info_type_id | int(11) | NO   |     | NULL    |                |
+| info         | text    | NO   |     | NULL    |                |
+| note         | text    | YES  |     | NULL    |                |
++--------------+---------+------+-----+---------+----------------+
+
+mysql> describe movie_info_idx;
++--------------+---------+------+-----+---------+----------------+
+| Field        | Type    | Null | Key | Default | Extra          |
++--------------+---------+------+-----+---------+----------------+
+| id           | int(11) | NO   | PRI | NULL    | auto_increment |
+| movie_id     | int(11) | NO   | MUL | NULL    |                |
+| info_type_id | int(11) | NO   | MUL | NULL    |                |
+| info         | text    | NO   | MUL | NULL    |                |
+| note         | text    | YES  |     | NULL    |                |
++--------------+---------+------+-----+---------+----------------+
+
+mysql> describe movie_keyword   ;
++------------+---------+------+-----+---------+----------------+
+| Field      | Type    | Null | Key | Default | Extra          |
++------------+---------+------+-----+---------+----------------+
+| id         | int(11) | NO   | PRI | NULL    | auto_increment |
+| movie_id   | int(11) | NO   | MUL | NULL    |                |
+| keyword_id | int(11) | NO   | MUL | NULL    |                |
++------------+---------+------+-----+---------+----------------+
+
+mysql> describe movie_link      ;
++-----------------+---------+------+-----+---------+----------------+
+| Field           | Type    | Null | Key | Default | Extra          |
++-----------------+---------+------+-----+---------+----------------+
+| id              | int(11) | NO   | PRI | NULL    | auto_increment |
+| movie_id        | int(11) | NO   | MUL | NULL    |                |
+| linked_movie_id | int(11) | NO   |     | NULL    |                |
+| link_type_id    | int(11) | NO   |     | NULL    |                |
++-----------------+---------+------+-----+---------+----------------+
+
+mysql> describe name;
++---------------+-------------+------+-----+---------+----------------+
+| Field         | Type        | Null | Key | Default | Extra          |
++---------------+-------------+------+-----+---------+----------------+
+| id            | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name          | text        | NO   | MUL | NULL    |                |
+| imdb_index    | varchar(12) | YES  |     | NULL    |                |
+| imdb_id       | int(11)     | YES  | MUL | NULL    |                |
+| gender        | varchar(1)  | YES  |     | NULL    |                |
+| name_pcode_cf | varchar(5)  | YES  | MUL | NULL    |                |
+| name_pcode_nf | varchar(5)  | YES  | MUL | NULL    |                |
+| surname_pcode | varchar(5)  | YES  | MUL | NULL    |                |
+| md5sum        | varchar(32) | YES  | MUL | NULL    |                |
++---------------+-------------+------+-----+---------+----------------+
+
+mysql> describe person_info     ;
++--------------+---------+------+-----+---------+----------------+
+| Field        | Type    | Null | Key | Default | Extra          |
++--------------+---------+------+-----+---------+----------------+
+| id           | int(11) | NO   | PRI | NULL    | auto_increment |
+| person_id    | int(11) | NO   | MUL | NULL    |                |
+| info_type_id | int(11) | NO   |     | NULL    |                |
+| info         | text    | NO   |     | NULL    |                |
+| note         | text    | YES  |     | NULL    |                |
++--------------+---------+------+-----+---------+----------------+
+
+mysql> describe role_type;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
+| role  | varchar(32) | NO   | UNI | NULL    |                |
++-------+-------------+------+-----+---------+----------------+
+
+mysql> describe title;
++-----------------+-------------+------+-----+---------+----------------+
+| Field           | Type        | Null | Key | Default | Extra          |
++-----------------+-------------+------+-----+---------+----------------+
+| id              | int(11)     | NO   | PRI | NULL    | auto_increment |
+| title           | text        | NO   | MUL | NULL    |                |
+| imdb_index      | varchar(12) | YES  |     | NULL    |                |
+| kind_id         | int(11)     | NO   |     | NULL    |                |
+| production_year | int(11)     | YES  |     | NULL    |                |
+| imdb_id         | int(11)     | YES  | MUL | NULL    |                |
+| phonetic_code   | varchar(5)  | YES  | MUL | NULL    |                |
+| episode_of_id   | int(11)     | YES  | MUL | NULL    |                |
+| season_nr       | int(11)     | YES  | MUL | NULL    |                |
+| episode_nr      | int(11)     | YES  | MUL | NULL    |                |
+| series_years    | varchar(49) | YES  |     | NULL    |                |
+| md5sum          | varchar(32) | YES  | MUL | NULL    |                |
++-----------------+-------------+------+-----+---------+----------------+
